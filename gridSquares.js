@@ -1,5 +1,5 @@
 /**
- * Created by alire_000 on 4/2/2016.
+ * Created by alire_000 on 4/2/2016
  */
 
 var colors = [
