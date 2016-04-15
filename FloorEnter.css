@@ -1,0 +1,48 @@
+*{
+    box-sizing:border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+div {
+    width:50%;
+    height:50%;
+    border: 15px solid white;
+
+    float:left;
+}
+
+#NT{
+    background-color: #e31e50;
+}
+
+#ET{
+    background-color: #e5781d;
+}
+
+#ST{
+    background-color: #e3e51d;
+}
+
+#WT{
+    background-color: #7ee51d;
+}
+
+#C 
+{
+    background-color: #0066ff;
+}
+
+h1{
+    font-family: sans-serif;
+    font-size: 72pt;
+    text-align: center;
+    color: white;
+}
+
+#top_text 
+{
+    color: Black;
+}
