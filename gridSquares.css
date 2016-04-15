@@ -1,0 +1,21 @@
+body{
+    background-color : #232323;
+}
+
+h1{
+    color:white;
+    font-family:sans-serif;
+}
+
+#container{
+margin:0 auto;
+    max-width:600px;
+}
+
+.square{
+    width:30%;
+    background:purple;
+    padding-bottom: 30%;
+    float:left;
+    margin:1.66%;
+}
