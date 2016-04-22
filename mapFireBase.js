@@ -230,7 +230,7 @@ myFirebaseRef.on("value", function (snapshot) {
             map.setZoomAround(center, baseZoom, true);
             // d3.select(this).style("fill", "teal");
             // text.style("font-size", "5px");
-            r = d3.select(this).getAttribute("r");
+            var r = d3.select(this).getAttribute("r");
             d3.select(this).attr("r", r);
             d3.select(".info-text").remove();
 
