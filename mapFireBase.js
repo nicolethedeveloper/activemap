@@ -50,7 +50,6 @@ var otherFirebaseRef = new Firebase("https://activemap.firebaseio.com/features/"
 // base map and initial bubbles draw
 myFirebaseRef.on("value", function (snapshot) {
     var collection = snapshot.val();
-
     var zoom;
     var transform = d3.geo.transform({ point: projectPoint }),
         path = d3.geo.path().projection(transform);
@@ -94,28 +93,28 @@ myFirebaseRef.on("value", function (snapshot) {
             topLeft = bounds[0],
             bottomRight = bounds[1];
 
-        svg.transition().attr("width", bottomRight[0] - topLeft[0])
+        svg.attr("width", bottomRight[0] - topLeft[0])
             .attr("height", bottomRight[1] - topLeft[1])
             .style("left", topLeft[0] + "px")
             .style("top", topLeft[1] + "px");
 
-        g.transition().attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+        g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
 
-        feature.transition().attr("d", path);
+        feature.attr("d", path);
 
         var youHerPoint = map.latLngToLayerPoint(youAreHere);
 
-        YouHere.transition().attr({
+        YouHere.attr({
             cx: youHerPoint.x,
             cy: youHerPoint.y - 30
         });
 
-        YouhereText.transition().attr({
+        YouhereText.attr({
             dx: youHerPoint.x + 12,
             dy: youHerPoint.y - 30 + 7
         });
 
-        circles.transition().attr("cx", function (d) {
+        circles.attr("cx", function (d) {
             if (d.properties.RoomName != "None") {
                 var centroid = path.centroid(d);
                 var x = centroid[0];
@@ -138,7 +137,7 @@ myFirebaseRef.on("value", function (snapshot) {
 
         zoom = map.getZoom();
 
-        text.transition().attr("dx", function (d) {
+        text.attr("dx", function (d) {
             if (d.properties.RoomName != null) {
                 var centroid = path.centroid(d);
                 var x = centroid[0];
@@ -164,7 +163,7 @@ myFirebaseRef.on("value", function (snapshot) {
 
 
 
-    feature.transition().attr("d", path).style("fill", function (d, i) {
+    feature.attr("d", path).style("fill", function (d, i) {
         if (i == 49) {
             return "rgba(13, 182, 174,0.5)";
         } else {
@@ -209,8 +208,8 @@ myFirebaseRef.on("value", function (snapshot) {
 
         } else {
             map.setZoomAround(zoomCenter, maxZoom, true);
-            d3.select("#" + ABV).transition().style("fill", selectColor).attr("r", r * 4);
-            d3.select("#" + ABV + "-text").transition().style("font-size", "25px").text(RoomName + ": " + Event);
+            d3.select("#" + ABV).style("fill", selectColor).attr("r", r * 4);
+            d3.select("#" + ABV + "-text").style("font-size", "25px").text(RoomName + ": " + Event);
             // text.style("font-size", "15px");
             // d3.select(".room-info").append("p").attr("class", "info-text")
             // .text(Event)
@@ -236,8 +235,8 @@ myFirebaseRef.on("value", function (snapshot) {
 
         } else {
             map.setZoomAround(zoomCenter, maxZoom, true);
-            d3.select(this).transition().style("fill", selectColor).attr("r", this.getAttribute("r") * 4);
-            d3.select("#" + ABV + "-text").transition().style("font-size", "25px").text(RoomName + ": " + Event);
+            d3.select(this).style("fill", selectColor).attr("r", this.getAttribute("r") * 4);
+            d3.select("#" + ABV + "-text").style("font-size", "25px").text(RoomName + ": " + Event);
             // text.style("font-size", "15px");
             // d3.select(".room-info").append("p").attr("class", "info-text")
             // .text(Event)
