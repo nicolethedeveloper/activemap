@@ -132,6 +132,8 @@ myFirebaseRef.on("value", function (snapshot) {
                 return d.properties.ABV;
             }).style("stroke", strokeColor);
 
+        d3.select("#HH").style("stroke", "yellow").style("stroke-width","6px");
+
         zoom = map.getZoom();
 
         text.attr("dx", function (d) {
@@ -222,18 +224,19 @@ myFirebaseRef.on("value", function (snapshot) {
         circleColor = this.getAttribute("fill");
         zoomCenter = map.layerPointToLatLng(centroid);
 
-        if (map.getZoom() === maxZoom) {
+        if (map.getZoom() == maxZoom) {
             map.setZoomAround(center, baseZoom, true);
             // d3.select(this).style("fill", "teal");
             // text.style("font-size", "5px");
             var r = d3.select(this).getAttribute("r");
             d3.select(this).attr("r", r);
-            d3.select(".info-text").remove();
+            // d3.select(".video").style("visibility","visible");
 
         } else {
             map.setZoomAround(zoomCenter, maxZoom, true);
             d3.select(this).style("fill", selectColor).attr("r", this.getAttribute("r") * 4);
             d3.select("#" + ABV + "-text").style("font-size", "25px").text(RoomName + ": " + Event);
+            // d3.select(".video").style("visibility","hidden");
             // text.style("font-size", "15px");
             // d3.select(".room-info").append("p").attr("class", "info-text")
             // .text(Event)

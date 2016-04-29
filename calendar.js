@@ -66,6 +66,8 @@
      * appropriate message is printed.
      */
     function listUpcomingEvents() {
+        var rooms;
+        console.log("0");
         var request = gapi.client.calendar.events.list({
             'calendarId': "4m0fn554mbtn714d84dnu2tuvk@group.calendar.google.com",
             'timeMin': (new Date()).toISOString(),
@@ -76,7 +78,6 @@
         });
 
         request.execute(function (resp) {
-            // console.log(resp.items);
             var events = resp.items;
             //Go through events and write them to Firebase
             for (i in events) {
@@ -87,16 +88,17 @@
 
                 var eventName = event.summary;
                 //Loop through firebase and find the correct room
-                ref.on("value", function (snapshot) {
-                    var rooms = snapshot.val();
+                ref.once("value", function (snapshot) {
+                    rooms = snapshot.val();
                     // console.log(rooms);
+                });
                     for (var j = 0; j < rooms.length; j++) {
                         if (rooms[j].properties.ABV == eventLoc) {
                             var NameRef = new Firebase('https://activemap.firebaseio.com/features/' + j + "/properties");
                             NameRef.child('Event').set(eventName);
                         }
                     }
-                });
+
             }
         });
     }
