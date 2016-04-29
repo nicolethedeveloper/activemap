@@ -4,102 +4,10 @@
     <meta charset=utf-8 />
     <title>Sharon Towers</title>
     <link rel="stylesheet" href="map.css">
-    <!--<script type="text/javascript">
-        // Your Client ID can be retrieved from your project in the Google
-        // Developer Console, https://console.developers.google.com
-        var CLIENT_ID = '496480343904-pav855ihusiubb1emo3193es15u36evt.apps.googleusercontent.com';
-
-        var SCOPES = ["https://www.googleapis.com/auth/calendar"];
-
-        /**
-         * Check if current user has authorized this application.
-         */
-        function checkAuth() {
-            gapi.auth.authorize(
-                    {
-                        'client_id': CLIENT_ID,
-                        'scope': SCOPES.join(' '),
-                        'immediate': true
-                    }, handleAuthResult);
-        }
-
-        /**
-         * Handle response from authorization server.
-         *
-         * @param {Object} authResult Authorization result.
-         */
-        function handleAuthResult(authResult) {
-            if (authResult && !authResult.error) {
-                loadCalendarApi();
-            } else {
-                // Show auth UI, allowing the user to initiate authorization by
-                // clicking authorize button.
-                console.log("Cannot Load!")
-            }
-        }
-
-        /**
-         * Initiate auth flow in response to user clicking authorize button.
-         *
-         * @param {Event} event Button click event.
-         */
-
-        gapi.auth.authorize(
-                {client_id: CLIENT_ID, scope: SCOPES, immediate: true},
-                handleAuthResult);
-
-
-
-        /**
-         * Load Google Calendar client library. List upcoming events
-         * once client library is loaded.
-         */
-        function loadCalendarApi() {
-            gapi.client.load('calendar', 'v3', listUpcomingEvents);
-        }
-
-        /**
-         * Print the summary and start datetime/date of the next ten events in
-         * the authorized user's calendar. If no events are found an
-         * appropriate message is printed.
-         */
-        function listUpcomingEvents() {
-            var request = gapi.client.calendar.events.list({
-                'calendarId': "4m0fn554mbtn714d84dnu2tuvk@group.calendar.google.com",
-                'timeMin': (new Date()).toISOString(),
-                'showDeleted': false,
-                'singleEvents': true,
-                'maxResults': 10,
-                'orderBy': 'startTime'
-            });
-
-            request.execute(function(resp) {
-                console.log(resp.items);
-                var events = resp.items;
-                for (i in events) {
-                    var event = events[i];
-
-                    console.log(event.location+", "+event.summary+", "+event.start.dateTime+", "+event.end.dateTime);
-                }
-
-            });
-        }
-
-        /**
-         * Append a pre element to the body containing the given message
-         * as its text node.
-         *
-         * @param {string} message Text to be placed in pre element.
-         */
-
-    </script>-->
-    <script src="calendar.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    <script type="text/javascript" src="Map.js"></script>
     <script type="text/javascript" src="mapFireBase.js"></script>
     <script src="calendar.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
@@ -108,16 +16,20 @@
 <script>
 
 </script>
-<div id="map"><h3>Touch Map to Interact!</h3></div>
+<div id="map"><h3>Touch Map For info!</h3></div>
 <div class="info">
     <div class="title">
         <h1>Active Map Sharon Towers</h1>
     </div>
-    <div class="graphic"></div>
+
     <div class="room-info">
-      <!--  <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffcc00&amp;src=4m0fn554mbtn714d84dnu2tuvk%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FNew_York" style="border-width:0" width="800" ></iframe> -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/k4ST1j9PfrA?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
     </div>
-</div>
+    <div class="graphic">
+        <h6 id ="graphTitle">How active is your tower?</h6>
+    </div>
+    </div>
+
 <script type="text/javascript" src="mapFireBase.js"></script>
 <script type =text/javascript" src="calendar.js"></script>
 

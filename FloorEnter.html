@@ -14,8 +14,10 @@
 <div id="ST"><h1>South Tower</h1></div>
 <div id="WT"><h1>West Tower</h1></div>
 <div id="C"><h1>Cottages</h1></div>
-
+<audio id = "beep" src="beep.wav"></audio>
 <script>
+
+    var myFirebaseRef = new Firebase("https://activemap.firebaseio.com/features/13");
 
     var towerNames = ["North Tower","East Tower","South Tower","West Tower", "Cottages"];
     var colors = ["#e31e50", "#e5781d", "#e3e51d", "#7ee51d", "#0066ff"];
@@ -30,13 +32,15 @@
 //        return d;
 //    });
 
+
+
 d3.selectAll("div").on("click",function(){
 
     var object = this;
-    d3.select(this).transition().duration(1000).style("background-color","grey");
+    d3.select(this).transition().duration(500).style("background-color","grey");
 
     setTimeout(function() {
-        d3.select(object).transition().duration(1000).style("background-color",function(){
+        d3.select(object).transition().duration(500).style("background-color",function(){
             if (object.getAttribute("id") == "NT"){
                 return colors[0];
             } else if (object.getAttribute("id") == "ET") {
@@ -49,10 +53,12 @@ d3.selectAll("div").on("click",function(){
                 return colors[4];
             }
         })
-    }, 2000);
+    }, 500);
 
-
-
+    myFirebaseRef.on("value", function(){
+        document.getElementById('beep').play();
+        document.getElementById('beep').play();
+    })
 })
 
 </script>

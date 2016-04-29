@@ -31,7 +31,7 @@ html, body {
 }
 
 .room-info{
-    height :42.5%;
+    height :40%;
 }
 
 svg {
@@ -62,6 +62,16 @@ h1{
 h3{
     text-align: center;
     font-size:40px;
+}
+
+#graphTitle{
+    height :2.5%;
+    margin:0;
+    margin-left:10px;
+    padding:0;
+    font-family:sans-serif;
+    font-size:20px;
+    border:0;
 }
 
 iframe{

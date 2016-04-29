@@ -1,0 +1,19 @@
+h4{
+    font-weight:500;
+    font-size:24px;
+}
+
+h3{
+    font-size:24px;
+}
+
+button {
+    font-size:18px;
+    color:white;
+    background-color:teal;
+    width:100%;
+}
+
+button:hover {
+    background-color: orange;
+}

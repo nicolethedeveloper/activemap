@@ -36,9 +36,6 @@ var map = new L.Map("map", {
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
-// map.boxZoom.disable();
-// map.keyboard.disable();
-// map.dragging.disable();
 
 
 var svg = d3.select(map.getPanes().overlayPane).append("svg"),
@@ -299,7 +296,6 @@ myFirebaseRef.once("value", function(snapshot){
                 towers[3] = towers[3] + WTCount;
             }
         }
-        console.log(towers);
     
         var svg2 = d3.select(".graphic").append("svg").attr("width", w).attr("height", h).attr("id","bar-chart");
         var g2 = svg2.append("g");
@@ -317,10 +313,6 @@ myFirebaseRef.once("value", function(snapshot){
 
         var max =  d3.max(towers);
         var y = d3.scale.linear().domain([0, max]).range([svgheight-30, 30]);
-        for (i in towers) {
-            console.log(y(towers[i]));
-        }
-
         var xAxisScale = d3.scale.ordinal()
             .domain(towerNames)
             .rangeBands([0, svgwidth], 0.2);
@@ -362,7 +354,7 @@ myFirebaseRef.once("value", function(snapshot){
             .style({
                 "font-family": "sans-serif",
                 "fill":"black",
-                "font-size":"17px"
+                "font-size":"14px"
             }).text(function (d,i) {
                     return d + " : " + towers[i];
                 }

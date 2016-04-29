@@ -1,6 +1,6 @@
 // Your Client ID can be retrieved from your project in the Google
 // Developer Console, https://console.developers.google.com
-var writeToFireBase = function() {
+
     var ref = new Firebase("https://activemap.firebaseio.com/features/");
 
     var CLIENT_ID = '496480343904-pav855ihusiubb1emo3193es15u36evt.apps.googleusercontent.com';
@@ -39,6 +39,13 @@ var writeToFireBase = function() {
      *
      * @param {Event} event Button click event.
      */
+
+    function handleAuthClick(event) {
+        gapi.auth.authorize(
+            {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+            handleAuthResult);
+        return false;
+    }
 
     gapi.auth.authorize(
         {client_id: CLIENT_ID, scope: SCOPES, immediate: true},
@@ -87,15 +94,9 @@ var writeToFireBase = function() {
                         if (rooms[j].properties.ABV == eventLoc) {
                             var NameRef = new Firebase('https://activemap.firebaseio.com/features/' + j + "/properties");
                             NameRef.child('Event').set(eventName);
-                            // console.log(event.location+", "+event.summary+", "+event.start.dateTime+", "+event.end.dateTime);
                         }
                     }
                 });
             }
         });
     }
-};
-
-writeToFireBase();
-
-setInterval(writeToFireBase,30000);
